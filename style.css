@@ -1,0 +1,55 @@
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+
+.memory-game{
+    width: 80vmin;
+    height: 80vmin;
+    display: flex;
+    flex-wrap: wrap;
+    margin:0 auto;
+    gap:0.2em;
+    padding: 10px;
+}
+
+header{
+    display: flex;
+    text-transform: uppercase;
+    background: #000;
+    color: white;
+    justify-content: space-between;
+    padding:0 10px;
+    align-items:center;
+}
+#restart-btn{
+    text-transform: capitalize;
+    padding: 3px;
+    font-weight: bold;
+}
+.memory-card{
+    width: 24%;
+    position: relative;
+    background-color: white;
+}
+
+.memory-card>img{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+}
+.front-face{
+    object-fit: cover;
+    /* object-position: top center; */
+
+}
+.front-face,.back-face{
+    pointer-events: none;
+}
