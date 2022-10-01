@@ -2,9 +2,14 @@
 const cards = document.querySelectorAll('.memory-card')
 const restartBtn = document.querySelector('#restart-btn')
 const timer = document.querySelector('#timer')
+const bestTimer = document.querySelector('#best--timer');
+//retrieve best score from the local storage
+let bestScore = localStorage.getItem("memory-game-best-score");
+//initialise with the best score
+bestTimer.innerHTML = "<b>" + (bestScore == null ? "-" : bestScore) + "</b>";
 let counter = 0;
-
 //increasing the counter
+
 const interval = setInterval(function(){
     counter++;
     console.log()
@@ -41,8 +46,17 @@ function checkForMatch(){
         matched++;
         if(matched===6)
         {
-        alert("hurrah! you did it")
-        clearInterval(interval)
+            alert("hurrah! you did it")
+            //print the updated best score on the page
+            if(bestScore == null) 
+                bestScore = counter;
+            else{
+                bestScore = Math.min(bestScore, counter);
+            }
+            //store the best score on the local storage
+            localStorage.setItem("memory-game-best-score", bestScore);
+            bestTimer.innerHTML = "<b>" + bestScore + "</b>";
+            clearInterval(interval)
         }
         else
         alert("woah! matched")
