@@ -53,6 +53,7 @@ function checkForMatch(){
     {
         flippedCards.forEach(flippedCard=>{
             flippedCard.children[0].src="#"; // Removing image src so that it isn't visible through HTML
+            flippedCard.children[0].alt="card front face"; // Removing image alt so that it isn't visible through HTML
             flippedCard.children[1].style.display="block";
         })
         alert("haha! better luck next time");
@@ -70,6 +71,7 @@ function flipCard(e, i){
 
     flippedCards.push(card)
     card.children[0].src=cardImageSrcs[i]; // Setting image source for flipped front face
+    card.children[0].alt=cardImageSrcs[i].split('/').slice(-1)[0].slice(0, -4); // Setting image file name as alt text for flipped front face
     card.children[1].style.display="none";
 
     //when we have filled two cards check for the match
