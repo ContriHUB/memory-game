@@ -16,6 +16,7 @@ function restartGame(){
 }
 
 // Storing image sources for list of cards
+// Storing it as a list and not a matrix to make it a bit difficult to map list to the 3x4 grid
 const cardImageSrcs = [
     'images/cards/inosuke.png',
     'images/cards/nezuko.png',
