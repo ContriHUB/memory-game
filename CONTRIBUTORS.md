@@ -14,6 +14,15 @@
         <br />
     </td>
   </tr>
+
+  <tr>
+    <td align="center">
+            <sub>
+                <b>[Jainendra Dwivedi](https://github.com/JainendraDwivedi)</b>
+            </sub>
+        <br />
+    </td>
+  </tr>
   
   
 </table>
