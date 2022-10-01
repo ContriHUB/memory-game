@@ -3,7 +3,16 @@
     margin:0;
     padding:0;
     font-family: 'Courier New', Courier, monospace;
+}
 
+body {
+    
+    /* background-image: linear-gradient(to right top, #845EC2, #2C73D2, #0081CF, #0089BA,#008E9B,#008F7A); */
+    /* background-image: linear-gradient(to right top, #7753b1, #A178DF, #BE93FD, #DCB0FF, #FACCFF); */
+    /* background-image: linear-gradient(to right top, #FE8A7E, #EA7891, #C96DA0, #9F68A7, #6E65A5, #365F97); */
+    /* background-image: linear-gradient(to right top, #FE8A7E,#B16B72, #653B3F); */
+    background-image: linear-gradient(to right top, #0a2a5b, #004d7a, #008793, #00bf72, #7feb12); 
+    height: 100vh;
 }
 
 .memory-game{
@@ -19,21 +28,23 @@
 header{
     display: flex;
     text-transform: uppercase;
-    background: #000;
-    color: white;
+    color: rgb(255, 255, 255);
     justify-content: space-between;
     padding:0 10px;
     align-items:center;
+    background-color: rgba(255, 255, 255, 0.289);
 }
 #restart-btn{
     text-transform: capitalize;
     padding: 3px;
     font-weight: bold;
+    background-color: #0a2a5b;
 }
 .memory-card{
     width: 24%;
     position: relative;
     background-color: white;
+    /* box-shadow: 10px 10px 100px 0px black, -10px -10px 100px 0px black; */
 }
 
 .memory-card>img{
@@ -43,7 +54,7 @@ header{
     transform: translate(-50%,-50%);
     width: 100%;
     height: 100%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 .front-face{
     object-fit: cover;
