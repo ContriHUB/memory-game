@@ -14,6 +14,11 @@ const decreaseTimer = setInterval(function(){
         timer.innerHTML = "<b>" + memoryCounter + "</b>";
     }
     else{
+        if(counter==0){
+            cards.forEach(card=>{
+                card.addEventListener('click',flipCard);
+            })
+        }
         counter++;
         console.log()
         timer.innerHTML = "<b>" + counter + "</b>";
@@ -56,7 +61,7 @@ function checkForMatch(){
         if(matched===6)
         {
         alert("hurrah! you did it")
-        clearInterval(interval)
+        clearInterval(decreaseTimer)
         }
         else
         alert("woah! matched")
@@ -85,9 +90,3 @@ function flipCard(e){
         setTimeout(checkForMatch,0); 
     }
 }
-
-cards.forEach(card=>{
-    card.addEventListener('click',flipCard);
-})
-
-
