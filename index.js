@@ -36,11 +36,7 @@ let matched=0;
 function checkForMatch(){
     //if matched
     if(flippedCards[0].children[0].src===flippedCards[1].children[0].src) // Checking if the flipped cards have same src i.e are matching
-    {
-        //remove listener from the card to avoid clicking again
-        flippedCards[0].removeEventListener('click',flipCard)
-        flippedCards[1].removeEventListener('click',flipCard)
-        
+    {        
         matched++;
         if(matched===6)
         {
@@ -66,6 +62,11 @@ function checkForMatch(){
 
 function flipCard(e, i){
     const card = e.target
+
+    // This means that card is already flipped currently, so we exit out of function
+    if (card.children[0].src!==window.location.href+"#")
+        return;
+
     flippedCards.push(card)
     card.children[0].src=cardImageSrcs[i]; // Setting image source for flipped front face
     card.children[1].style.display="none";
