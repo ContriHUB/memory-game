@@ -2,6 +2,9 @@
 const cards = document.querySelectorAll('.memory-card')
 const restartBtn = document.querySelector('#restart-btn')
 const timer = document.querySelector('#timer')
+var audioPass = new Audio("audios/Success.mp3")
+var audioFail = new Audio("audios/Fail.mp3")
+var audioWin = new Audio("audios/Win.mp3")
 let counter = 0;
 
 //increasing the counter
@@ -29,11 +32,14 @@ function checkForMatch(){
         matched++;
         if(matched===6)
         {
+        audioWin.play()
         alert("hurrah! you did it")
         clearInterval(interval)
         }
-        else
-        alert("woah! matched")
+        else{
+            audioPass.play();
+            alert("woah! matched")
+        }
         
     }
     //if not matched
@@ -42,6 +48,7 @@ function checkForMatch(){
         flippedCards.forEach(flippedCard=>{
             flippedCard.children[1].style.display="block";
         })
+        audioFail.play()
         alert("haha! better luck next time");
     }
 
