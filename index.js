@@ -5,37 +5,34 @@ const timer = document.querySelector('#timer')
 let counter = 0;
 let memoryCounter = 5;
 
-// Timing the counters
-const decreaseTimer = setInterval(function(){
-    if(memoryCounter>0){
+// For modifying cards
+const makeCardsClickable = setTimeout(function(){
+    cards.forEach(card=>{
+        card.addEventListener('click',flipCard); // Makes cards clickable after the timer expires
+        card.children[1].style.display="block"; // Hides them after the timer expires
+    })
+},memoryCounter*1000);
+
+// For timing the counters
+const interval = setInterval(function(){
+    if(memoryCounter>0){ // Makes a check on memoryCounter and stops after 5 secs
         memoryCounter--;
         viewAllCards();
-        console.log()
-        timer.innerHTML = "<b>" + memoryCounter + "</b>";
+        timer.innerHTML = "<b>" + memoryCounter + "</b>"; // Changes inner HTML
     }
-    else{
-        if(counter==0){
-            cards.forEach(card=>{
-                card.addEventListener('click',flipCard);
-            })
-        }
-        counter++;
-        console.log()
-        timer.innerHTML = "<b>" + counter + "</b>";
+    else{ // Counter for timing the game
+        counter++; // This counter is set to motion only when the game starts i.e when memoryCounter expires
+        timer.innerHTML = "<b>" + counter + "</b>"; // Changes inner HTML
     }
   }, 1000);
 
 
 // To view all cards
 function viewAllCards(){
+    // Cards are made viewable when memoryCounter is greater than 0
     if(memoryCounter>0){
         cards.forEach(card=>{
             card.children[1].style.display="none";
-        })
-    }
-    else{
-        cards.forEach(card=>{
-            card.children[1].style.display="block";
         })
     }
 }
@@ -61,7 +58,7 @@ function checkForMatch(){
         if(matched===6)
         {
         alert("hurrah! you did it")
-        clearInterval(decreaseTimer)
+        clearInterval(interval)
         }
         else
         alert("woah! matched")
