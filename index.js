@@ -3,16 +3,47 @@ const cards = document.querySelectorAll('.memory-card')
 const restartBtn = document.querySelector('#restart-btn')
 const timer = document.querySelector('#timer')
 let counter = 0;
+let memoryCounter = 5;
 
-//increasing the counter
-const interval = setInterval(function(){
-    counter++;
-    console.log()
-    timer.innerHTML = "<b>" + counter + "</b>";
+// Timing the counters
+const decreaseTimer = setInterval(function(){
+    if(memoryCounter>0){
+        memoryCounter--;
+        viewAllCards();
+        console.log()
+        timer.innerHTML = "<b>" + memoryCounter + "</b>";
+    }
+    else{
+        if(counter==0){
+            cards.forEach(card=>{
+                card.addEventListener('click',flipCard);
+            })
+        }
+        counter++;
+        console.log()
+        timer.innerHTML = "<b>" + counter + "</b>";
+    }
   }, 1000);
 
+
+// To view all cards
+function viewAllCards(){
+    if(memoryCounter>0){
+        cards.forEach(card=>{
+            card.children[1].style.display="none";
+        })
+    }
+    else{
+        cards.forEach(card=>{
+            card.children[1].style.display="block";
+        })
+    }
+}
+
+
+// When the game restarts all cards are made visible for 5secs
 function restartGame(){
-    window.location.reload()
+    window.location.reload();
 }
 
 const flippedCards = []
@@ -30,7 +61,7 @@ function checkForMatch(){
         if(matched===6)
         {
         alert("hurrah! you did it")
-        clearInterval(interval)
+        clearInterval(decreaseTimer)
         }
         else
         alert("woah! matched")
@@ -59,9 +90,3 @@ function flipCard(e){
         setTimeout(checkForMatch,0); 
     }
 }
-
-cards.forEach(card=>{
-    card.addEventListener('click',flipCard);
-})
-
-
