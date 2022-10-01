@@ -55,6 +55,7 @@ function checkForMatch(){
     {
         flippedCards.forEach(flippedCard=>{
             flippedCard.children[1].style.display="block";
+            flippedCard.classList.remove('flip')
         })
         alert("haha! better luck next time");
     }
@@ -66,7 +67,7 @@ function flipCard(e){
     const card = e.target
     flippedCards.push(card)
     card.children[1].style.display="none";
-
+    card.classList.add('flip')
     //when we have filled two cards check for the match
     if(flippedCards.length === 2)
     {
