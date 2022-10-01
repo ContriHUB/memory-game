@@ -1,3 +1,7 @@
+function restartGame(){
+    window.location.reload()
+}
+
 // Wrapping entire code in anonymous function and calling it, so that user doesn't have access to cardImageSrcs
 (() => {
     const cards = document.querySelectorAll('.memory-card')
@@ -16,10 +20,6 @@
         console.log()
         timer.innerHTML = "<b>" + counter + "</b>";
     }, 1000);
-
-    function restartGame(){
-        window.location.reload()
-    }
 
     // Storing image sources for list of cards
     // Storing it as a list and not a matrix to make it a bit difficult to map list to the 3x4 grid
