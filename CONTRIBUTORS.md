@@ -15,7 +15,7 @@
     </td>
     <td align="center">
         <a href="https://github.com/w3yogesh">
-            <img src="https://avatars.githubusercontent.com/u/34393512?v=4" width="100px;" alt="Yogesh Kumar Sai"/>
+            <img src="https://avatars.githubusercontent.com/u/27480542?v=4" width="100px;" alt="Yogesh Kumar Sai"/>
             <br />
             <sub>
                 <b>Yogesh Kumar Sai </b>
