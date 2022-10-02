@@ -1,5 +1,7 @@
+
 function restartGame(){
     window.location.reload()
+
 }
 
 // Wrapping entire code in anonymous function and calling it, so that user doesn't have access to cardImageSrcs
@@ -14,6 +16,22 @@ function restartGame(){
     bestTimer.innerHTML = "<b>" + (bestScore == null ? "-" : bestScore) + "</b>";
     let counter = 0;
     //increasing the counter
+    var level = prompt("Enter the difficulty lable of your game : "); 
+
+    var req_score = 0;
+    if(level === "easy"){
+        document.getElementById("hard").style.display = "none";
+        document.getElementById("medium").style.display = "none";
+        req_score = 6;
+    }else if(level === "hard"){
+        document.getElementById("easy").style.display = "none";
+        document.getElementById("medium").style.display = "none";
+        req_score = 14;
+    }else{
+        document.getElementById("easy").style.display = "none";
+        document.getElementById("hard").style.display = "none";
+         req_score = 10;
+    }
 
     const interval = setInterval(function(){
         counter++;
@@ -23,26 +41,51 @@ function restartGame(){
 
     // Storing image sources for list of cards
     // Storing it as a list and not a matrix to make it a bit difficult to map list to the 3x4 grid
+   
+
     const cardImageSrcs = [
         'images/cards/inosuke.png',
         'images/cards/nezuko.png',
         'images/cards/rengoku.png',
-        'images/cards/mask.png',
         'images/cards/tanjiro.png',
         'images/cards/zenitsu.png',
+        'images/cards/mask.png',
         'images/cards/inosuke.png',
         'images/cards/nezuko.png',
         'images/cards/rengoku.png',
-        'images/cards/mask.png',
         'images/cards/tanjiro.png',
         'images/cards/zenitsu.png',
+        'images/cards/mask.png',
+
+        'images/cards/rengoku.png',
+        'images/cards/tanjiro.png',
+        'images/cards/zenitsu.png',
+        'images/cards/inosuke.png',
+        'images/cards/rengoku.png',
+        'images/cards/tanjiro.png',
+        'images/cards/zenitsu.png',
+        'images/cards/inosuke.png',
+
+        'images/cards/inosuke.png',
+        'images/cards/zenitsu.png',
+        'images/cards/mask.png',
+        'images/cards/nezuko.png',
+        'images/cards/mask.png',
+        'images/cards/inosuke.png',
+        'images/cards/zenitsu.png',
+        'images/cards/nezuko.png',
     ];
+
+
     const flippedCards = []
     let matched=0;
 
     function shuffle(array) {
+
         let currentIndex = array.length,  randomIndex;
-    
+    if(level === "easy") currentIndex = 12;
+    else if(level === "hard") currentIndex = 28;
+    else currentIndex = 20;
         // While there remain elements to shuffle.
         while (currentIndex != 0) {
     
@@ -64,7 +107,7 @@ function restartGame(){
         if(flippedCards[0].children[0].src===flippedCards[1].children[0].src) // Checking if the flipped cards have same src i.e are matching
         {        
             matched++;
-            if(matched===6)
+            if(matched===req_score)
             {
                 alert("hurrah! you did it")
                 //print the updated best score on the page
@@ -119,5 +162,4 @@ function restartGame(){
         card.addEventListener('click',e=>flipCard(e, i)); // Passing index of card when calling flipCard
     })
 })();
-
 
