@@ -87,6 +87,8 @@ function restartGame(){
         {
             flippedCards.forEach(flippedCard=>{
                 flippedCard.children[0].src="#"; // Removing image src so that it isn't visible through HTML
+                // Removing class so that it can be flipped again
+                flippedCard.classList.remove('flip');
                 flippedCard.children[0].alt="card front face"; // Removing image alt so that it isn't visible through HTML
                 flippedCard.children[1].style.display="block";
             })
@@ -107,7 +109,9 @@ function restartGame(){
         card.children[0].src=cardImageSrcs[i]; // Setting image source for flipped front face
         card.children[0].alt=cardImageSrcs[i].split('/').slice(-1)[0].split('.').slice(0, -1).join('.'); // Setting image file name as alt text for flipped front face
         card.children[1].style.display="none";
-
+        console.log(card);
+        // Adding flip class to card to flip it
+        card.classList.add('flip');
         //when we have filled two cards check for the match
         if(flippedCards.length === 2)
         {

@@ -32,6 +32,16 @@
             </sub>
         </a>
     </td>
+    <td align="center">
+        <a href="https://github.com/niftyNitin">
+            <img src="https://avatars.githubusercontent.com/u/57863681?v=4" width="100px;" alt="Nitin Kumar Gupta"/>
+            <br />
+            <sub>
+                <b>Harsh Narayan</b>
+            </sub>
+        </a>
+        <br />
+    </td>
   </tr>
   
   

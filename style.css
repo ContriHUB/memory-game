@@ -36,6 +36,11 @@ header{
     background-color: white;
 }
 
+.memory-card.flip {
+    transform: rotateY( 180deg ) ;
+    transition: transform 0.5s;  
+}
+
 .memory-card>img{
     position: absolute;
     top:50%;
