@@ -29,6 +29,7 @@ header{
     text-transform: capitalize;
     padding: 3px;
     font-weight: bold;
+
 }
 .memory-card{
     width: 24%;
@@ -52,4 +53,51 @@ header{
 }
 .front-face,.back-face{
     pointer-events: none;
+}
+.modal {
+    position: absolute;
+    background: #00000070;
+    color: #eeee;
+    display: none;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    top: 0;
+}
+.modal-body {
+    position: absolute;
+    background: #96b6f1;
+    color: #252552;
+    width: 30vw;
+    height: 25vh;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: -2px -1px 17px #b6b6b6, 0px 0px 20px 0px #f6f6f6;
+}
+.finish-text {
+    text-transform: uppercase;
+}
+.modal-btn {
+    color: #eeee;
+    background: #144e69;
+    padding: 10px;
+    margin: 10px 0 0 0;
+    width: 40%;
+    font-size: 1.4vw;
+    border-radius: 20px;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+.modal-btn:hover{
+    background: #eee;
+    color: #033b54;
+    border-radius: 10px;
 }
