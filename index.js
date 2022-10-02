@@ -1,7 +1,8 @@
-
 const cards = document.querySelectorAll('.memory-card')
 const restartBtn = document.querySelector('#restart-btn')
 const timer = document.querySelector('#timer')
+const modal = document.querySelector('.modal')
+const timer_box = document.querySelector('.timer-box')
 let counter = 0;
 
 //increasing the counter
@@ -29,8 +30,10 @@ function checkForMatch(){
         matched++;
         if(matched===6)
         {
-        alert("hurrah! you did it")
+        //show pop-up when game finished
         clearInterval(interval)
+        modal.style.cssText = "display : block;";
+        timer_box.innerHTML = "<b>" + counter + "Secs</br>"
         }
         else
         alert("woah! matched")
