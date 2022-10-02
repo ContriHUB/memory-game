@@ -10,12 +10,18 @@
 <body>
     <script src="index.js" defer></script>
     <header>
-      <img src="images/logo.jpg" height="50px" width="50px" alt="logo">
+      <img src="images/logo.jpg" height="50px" width="50px" alt="logo" class="logo">
       <h1>memory game</h1>
       <button id="restart-btn" onclick="restartGame()">restart</button>
     </header>
-    <h3 style="text-align:center">Best time:<span id="best--timer">-</span></h3>
-    <h3 style="text-align:center">time:<span id="timer">0</span></h3>
+    <h4 class="time--stat" style="text-align:center">
+      <span>
+        Best time: <span id="best--timer">-</span>
+      </span>
+      <span>
+        time:<span id="timer">0</span>
+      </span>
+    </h3>
     <section class="memory-game">
         <div class="memory-card">
           <img class="front-face" src="#" alt="card front face" />
@@ -29,8 +35,8 @@
           <img class="front-face" src="#" alt="card front face" />
           <img class="back-face" src="images/cover.png" alt="card cover" />
         </div>
-        <div class="memory-card">
-          <img class="front-face" src="#" alt="card front face" />
+        <div class="memory-card" data-character="mask"> 
+          <img class="front-face" src="images/mask.png" alt="mask" />
           <img class="back-face" src="images/cover.png" alt="card cover" />
         </div>
         <div class="memory-card">
