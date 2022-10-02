@@ -14,6 +14,15 @@
         </a>
         <br />
     </td>
+    <td align="center">
+        <a href="https://github.com/DNA5769">
+            <img src="https://avatars.githubusercontent.com/u/40732639?v=4" width="100px;" alt="Lovedeep singh kamal"/>
+            <br />
+            <sub>
+                <b>Dennis Thomas </b>
+            </sub>
+        </a>
+    </td>
   </tr>
   
   
