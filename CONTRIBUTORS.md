@@ -13,8 +13,6 @@
         </a>
         <br />
     </td>
-  </tr>
-  <tr>
     <td align="center">
         <a href="https://github.com/w3yogesh">
             <img src="https://avatars.githubusercontent.com/u/34393512?v=4" width="100px;" alt="Yogesh Kumar Sai"/>
@@ -25,7 +23,6 @@
         </a>
         <br />
     </td>
-  </tr>
   
 </table>
 
