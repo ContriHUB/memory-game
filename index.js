@@ -105,7 +105,7 @@ function restartGame(){
 
         flippedCards.push(card)
         card.children[0].src=cardImageSrcs[i]; // Setting image source for flipped front face
-        card.children[0].alt=cardImageSrcs[i].split('/').slice(-1)[0].slice(0, -4); // Setting image file name as alt text for flipped front face
+        card.children[0].alt=cardImageSrcs[i].split('/').slice(-1)[0].split('.').slice(0, -1).join('.'); // Setting image file name as alt text for flipped front face
         card.children[1].style.display="none";
 
         //when we have filled two cards check for the match
