@@ -12,7 +12,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
+} 
 body {
     background-image: linear-gradient(to right top, #0a2a5b, #004d7a, #008793, #00bf72, #7feb12); 
     height: 100vh;
@@ -148,7 +148,7 @@ header{
   z-index: var(--modal_zx, var(--zx-600));
   max-width: 500px;
   grid-template-areas: "header" "body" "footer";
-  top: 20px;
+  top: 40%;
   left: 50%;
   transform: translateX(-50%);
   box-shadow: 0 0 8px var(--black-1a);

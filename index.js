@@ -12,14 +12,10 @@ function restartGame(){
     let bestScore = localStorage.getItem("memory-game-best-score");
     //initialise with the best score
     bestTimer.innerHTML = "<b>" + (bestScore == null ? "-" : bestScore) + "</b>";
-    let counter = 0;
-    //increasing the counter
 
-    const interval = setInterval(function(){
-        counter++;
-        console.log()
-        timer.innerHTML = "<b>" + counter + "</b>";
-    }, 1000);
+    //increasing the counter
+    
+    
 
     // Storing image sources for list of cards
     // Storing it as a list and not a matrix to make it a bit difficult to map list to the 3x4 grid
@@ -131,6 +127,13 @@ window.onclick = (e) => {
 function closeModal() {
   modal.classList.remove("active");
   shadow.classList.remove("active");
+  let counter = 0;
+  const interval = setInterval(function(){
+    counter++;
+    console.log()
+    timer.innerHTML = "<b>" + counter + "</b>";
+}, 1000);
+setInterval();
 }
 
 function openModal() {
