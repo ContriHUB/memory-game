@@ -10,6 +10,10 @@ function restartGame(){
     const bestTimer = document.querySelector('#best--timer');
     //retrieve best score from the local storage
     let bestScore = localStorage.getItem("memory-game-best-score");
+    // audio variables
+    var audioSuccess = new Audio("./audios/Success.mp3");
+    var audioFail = new Audio("./audios/Fail.mp3");
+    var audioWin = new Audio("./audios/Win.mp3");
     //initialise with the best score
     bestTimer.innerHTML = "<b>" + (bestScore == null ? "-" : bestScore) + "</b>";
     let counter = 0;
@@ -66,6 +70,7 @@ function restartGame(){
             matched++;
             if(matched===6)
             {
+                audioWin.play(); // Win.mp3 plays if the game is complete
                 alert("hurrah! you did it")
                 //print the updated best score on the page
                 if(bestScore == null) 
@@ -79,7 +84,10 @@ function restartGame(){
                 clearInterval(interval)
             }
             else
-            alert("woah! matched")
+            {
+                audioSuccess.play(); // Success.mp3 plays if correct match
+                alert("woah! matched")
+            }    
             
         }
         //if not matched
@@ -90,6 +98,7 @@ function restartGame(){
                 flippedCard.children[0].alt="card front face"; // Removing image alt so that it isn't visible through HTML
                 flippedCard.children[1].style.display="block";
             })
+            audioFail.play(); // Fail.mp3 plays if not correct match
             alert("haha! better luck next time");
         }
 
