@@ -119,5 +119,24 @@ function restartGame(){
         card.addEventListener('click',e=>flipCard(e, i)); // Passing index of card when calling flipCard
     })
 })();
+const modal = document.getElementById("modal");
+const shadow = document.getElementById("shadow");
+
+window.onclick = (e) => {
+  if (e.target === shadow) {
+    closeModal();
+  }
+};
+
+function closeModal() {
+  modal.classList.remove("active");
+  shadow.classList.remove("active");
+}
+
+function openModal() {
+  modal.classList.add("active");
+  shadow.classList.add("active");
+}
+
 
 

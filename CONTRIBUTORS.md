@@ -14,6 +14,16 @@
         <br />
     </td>
     <td align="center">
+        <a href="https://github.com/nematanya">
+            <img src="https://avatars.githubusercontent.com/nematanya" width="100px;" alt="Tanya Nema"/>
+            <br />
+            <sub>
+                <b> Tanya Nema </b>
+            </sub>
+        </a>
+        <br />
+    </td>
+    <td align="center">
         <a href="https://github.com/harshN-17">
             <img src="https://avatars.githubusercontent.com/u/96466588?v=4" width="100px;" alt="Harsh Narayan"/>
             <br />

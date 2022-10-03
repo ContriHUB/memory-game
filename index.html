@@ -10,12 +10,34 @@
 <body>
     <script src="index.js" defer></script>
     <header>
-      <img src="images/logo.jpg" height="50px" width="50px" alt="logo">
+      <img src="images/logo.jpg" height="50px" width="50px" alt="logo" class="logo">
       <h1>memory game</h1>
       <button id="restart-btn" onclick="restartGame()">restart</button>
     </header>
-    <h3 style="text-align:center">Best time:<span id="best--timer">-</span></h3>
-    <h3 style="text-align:center">time:<span id="timer">0</span></h3>
+    <h4 class="time--stat" style="text-align:center">
+      <span>
+        Best time: <span id="best--timer">-</span>
+      </span>
+      <span>
+        time:<span id="timer">0</span>
+      </span>
+    </h3>
+        <div class="shadow" id="shadow"></div>
+       <center><button class="primary-button" onclick="openModal()" >Start Game</button></center> 
+        <div class="modal" id="modal">
+          <div class="modal__header">
+            <h1 class="h1" id=""bttn>Choose your Level</h1>
+            <button class="modal__close-button" onclick="closeModal()"><i class="fa fa-xmark"></i></button>
+          </div>
+          <div class="modal__body"> 
+            <div id="bttn"><button class="modal__close-button" onclick="closeModal()">Easy <i class="fa fa-xmark"></i></button><br></div>
+            <div id="bttn"><button class="modal__close-button" onclick="closeModal()">Medium<i class="fa fa-xmark"></i></button><br></div>
+            <div id="bttn"><button class="modal__close-button" onclick="closeModal()">Hard <i class="fa fa-xmark"></i></button><br></div>
+          </div>
+          <div class="modal__footer">
+            <p class="p" id="bttn">Good Luck for your Game</p>
+          </div>
+        </div>
     <section class="memory-game">
         <div class="memory-card">
           <img class="front-face" src="#" alt="card front face" />
