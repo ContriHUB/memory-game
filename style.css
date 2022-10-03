@@ -7,7 +7,12 @@
     padding:0;
     font-family: 'Ubuntu', sans-serif;
 }
-
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body {
     background-image: linear-gradient(to right top, #0a2a5b, #004d7a, #008793, #00bf72, #7feb12); 
     height: 100vh;
@@ -89,13 +94,6 @@ header{
 }
 .front-face,.back-face{
     pointer-events: none;
-}
-
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 }
 
 :root {
@@ -185,30 +183,17 @@ header{
     color: var(--primary-button_cr, var(--white-1));
     text-decoration: none;
     background-color: #6d94ce;
-    /* background-color: var(--primary-button_bd-cr, var(--green-1)); */
-
 }
 .modal.active {
   display: grid;
 }
-#bttn{
+#align_button{
     text-align: center;
 }
 .h1 {
   font-size: 2rem;
 }
 
-.p:not(:only-child) {
-  margin-bottom: 0.8em;
-}
-
-.pg-200 {
-  padding: 0.5em 1em;
-}
-
-.mn-lt-1 {
-  margin-left: 0.3em;
-}
 
 .shadow {
   position: fixed;
