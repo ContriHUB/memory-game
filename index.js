@@ -146,7 +146,7 @@ function closeModal() {
   shadow.classList.remove("active");
 }
 function hideButton(){
-    document.getElementById('hide').style.display ="none";
+    document.getElementById('start-btn').style.display ="none";
 }
 function openModal() {
   modal.classList.add("active");
