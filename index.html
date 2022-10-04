@@ -6,23 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>memory game</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <script src="index.js" defer></script>
     <header>
-      <img src="images/logo.jpg" height="50px" width="50px" alt="logo" class="logo">
-      <h1>memory game</h1>
-      <button id="restart-btn" onclick="restartGame()">restart</button>
+      <!-- left wrapper contain logo and game name  -->
+      <div class="left-wrapper">
+        <img src="images/logo.jpg" height="50px" width="50px" alt="logo" class="logo">
+        <h1 style="margin-left:10px;">memory game</h1>
+      </div>
+      <!-- Right Wrapper for start and restart button  -->
+      <div class="right-wrapper">
+        <button id="start-btn" onclick="openModel()">Start Game</button>
+        <button id="restart-btn" onclick="restartGame()">restart</button>
+      </div>
+     
     </header>
+     <!-- Model pop-up box start here -->
+     <div class="model-container" id="model">
+        <div class="model">
+           <img src="images/logo.jpg" height="70px" width="70px" alt="logo" class="logo">
+           <h3>Choose Level</h3>
+           <!-- Levels section  -->
+           <div class="levels">
+             <button onclick="setTimer(),closeModel()">Easy</button>
+             <button onclick="setTimer(),closeModel()">Medium</button>
+             <button onclick="setTimer(),closeModel()">Hard</button>
+           </div>
+           <!-- Levels section end -->
+           <i class="fas fa-times" onclick="closeModel()"></i>
+        </div>
+        </div>
+     </div>
+     <!-- Model pop-up box end here  -->
     <h4 class="time--stat" style="text-align:center">
       <span>
         Best time: <span id="best--timer">-</span>
       </span>
+
       <span>
         time:<span id="timer">0</span>
       </span>
     </h3>
-    <section class="memory-game">
+<section class="memory-game">
+    
         <div class="memory-card">
           <img class="front-face" src="#" alt="card front face" />
           <img class="back-face" src="images/cover.png" alt="card cover" />
@@ -71,16 +99,21 @@
           <img class="front-face" src="#" alt="card front face" />
           <img class="back-face" src="images/cover.png" alt="card cover" />
         </div>
-        
-      </section>
+   
+</section>
 
-      <div class="modal">
+<!-- prevent user to accessing game before the start game -->
+<div id="prevent-box">
+
+</div>
+
+<div class="modal">
         <div class="modal--container">
           <div id="modal--close">+</div>
           <div>Hurray!! You won the game.</div>
           <div>Time Taken: <span id="modal--time">0</span></div>
           <button class="modal--btn" onclick="restartGame()">Replay</button>
         </div>
-      </div>
+</div>
 </body>
 </html>
