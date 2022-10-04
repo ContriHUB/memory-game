@@ -123,23 +123,17 @@ window.onclick = (e) => {
     closeModal();
   }
 };
-function handleLevel(string)
+let counter=0;
+let time=null;
+function addCounter()
 {
-    if(string==='Easy')
-timerStart();
-    else if(string==='Medium')
-timerStart();
-    else if(string==='Hard')
-timerStart();
-    
-}
-function timerStart(){
-      let counter = 0;
-  const interval = setInterval(function(){
     counter++;
-    console.log()
-    timer.innerHTML = "<b>" + counter + "</b>";
-}, 1000);
+    timer.innerHTML=counter+"</br>";
+}
+function handleLevel(level)
+{
+    if(time) return;
+    time= setInterval(addCounter,1000);
 }
 function closeModal() {
   modal.classList.remove("active");
@@ -152,6 +146,3 @@ function openModal() {
   modal.classList.add("active");
   shadow.classList.add("active");
 }
-
-
-
