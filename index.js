@@ -1,6 +1,11 @@
 function restartGame(){
     window.location.reload()
 }
+//Mute audio functionality
+var audioState=true;
+function stopMusic(){
+    audioState= !audioState;
+}
 
 // Wrapping entire code in anonymous function and calling it, so that user doesn't have access to cardImageSrcs
 (() => {
@@ -73,7 +78,7 @@ function restartGame(){
             matched++;
             if(matched===6)
             {
-                audioWin.play(); // Win.mp3 plays if the game is complete
+                if(audioState)audioWin.play(); // Win.mp3 plays if the game is complete
                 alert("hurrah! you did it")
                 //print the updated best score on the page
                 if(bestScore == null) 
@@ -90,7 +95,7 @@ function restartGame(){
             }
             else
             {
-                audioSuccess.play(); // Success.mp3 plays if correct match
+                if(audioState)audioSuccess.play(); // Success.mp3 plays if correct match
                 alert("woah! matched")
             }    
             
@@ -103,7 +108,7 @@ function restartGame(){
                 flippedCard.children[0].alt="card front face"; // Removing image alt so that it isn't visible through HTML
                 flippedCard.children[1].style.display="block";
             })
-            audioFail.play(); // Fail.mp3 plays if not correct match
+            if(audioState)audioFail.play(); // Fail.mp3 plays if not correct match
             alert("haha! better luck next time");
         }
 
