@@ -3,7 +3,7 @@ function restartGame(){
 }
 //Mute audio functionality
 var audioState=true;
-function stopMusic(){
+function toggleSound(){
     audioState= !audioState;
 }
 
