@@ -75,14 +75,14 @@ header{
     padding-right: 5px;
 }
 
-input[type=checkbox]{
+.mute-toggle-input{
 	height: 0;
 	width: 0;
 	visibility: hidden;
     float: right;
 }
 
-label {
+.mute-toggle-label {
 	cursor: pointer;
 	text-indent: -45px;
     text-shadow: #004d7a;
@@ -96,7 +96,7 @@ label {
 
 }
 
-label:after {
+.mute-toggle-label:after {
     content: '';
     position: absolute;
     top: 3px;
@@ -110,16 +110,16 @@ label:after {
 
 }
 
-input:checked + label {
+.mute-toggle-input:checked + .mute-toggle-label {
 	background: #bada55;
 }
 
-input:checked + label:after {
+.mute-toggle-input:checked + .mute-toggle-label:after {
 	left: calc(100% - 5px);
 	transform: translateX(-100%);
 }
 
-label:active:after {
+.mute-toggle-label:active:after {
 	width: 20px;
 }
 /* Mute button ends */
