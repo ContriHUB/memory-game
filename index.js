@@ -79,7 +79,6 @@ function toggleSound(){
             if(matched===6)
             {
                 if(audioState)audioWin.play(); // Win.mp3 plays if the game is complete
-                alert("hurrah! you did it")
                 //print the updated best score on the page
                 if(bestScore == null) 
                     bestScore = counter;
@@ -96,7 +95,6 @@ function toggleSound(){
             else
             {
                 if(audioState)audioSuccess.play(); // Success.mp3 plays if correct match
-                alert("woah! matched")
             }    
             
         }
@@ -109,7 +107,6 @@ function toggleSound(){
                 flippedCard.children[1].style.display="block";
             })
             if(audioState)audioFail.play(); // Fail.mp3 plays if not correct match
-            alert("haha! better luck next time");
         }
 
         flippedCards.length= 0;
