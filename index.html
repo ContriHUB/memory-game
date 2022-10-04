@@ -23,16 +23,16 @@
       </span>
     </h3>
         <div class="shadow" id="shadow"></div>
-       <center><button class="primary-button" onclick="openModal()" >Start Game</button></center> 
+       <center><button class="primary-button" id="hide" onclick="openModal()" >Start Game</button></center> 
         <div class="modal" id="modal">
           <div class="modal__header">
             <h1 class="h1" id=""bttn>Choose your Level</h1>
             <button class="modal__close-button" onclick="closeModal()"><i class="fa fa-xmark"></i></button>
           </div>
           <div class="modal__body"> 
-            <div id="align_button"><button class="modal__close-button" onclick="closeModal()">Easy <i class="fa fa-xmark"></i></button><br></div>
-            <div id="align_button"><button class="modal__close-button" onclick="closeModal()">Medium<i class="fa fa-xmark"></i></button><br></div>
-            <div id="align_button"><button class="modal__close-button" onclick="closeModal()">Hard <i class="fa fa-xmark"></i></button><br></div>
+            <div id="align_button"><button class="modal__close-button" onclick="closeModal(),handleLevel('Easy'),hideButton()">Easy <i class="fa fa-xmark"></i></button><br></div>
+            <div id="align_button"><button class="modal__close-button" onclick="closeModal(),handleLevel('Medium'),hideButton()">Medium<i class="fa fa-xmark"></i></button><br></div>
+            <div id="align_button"><button class="modal__close-button" onclick="closeModal(),handleLevel('Hard'),hideButton()">Hard <i class="fa fa-xmark"></i></button><br></div>
           </div>
           <div class="modal__footer">
             <p class="p" id="align_button">Good Luck for your Game</p>

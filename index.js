@@ -123,19 +123,31 @@ window.onclick = (e) => {
     closeModal();
   }
 };
-
-function closeModal() {
-  modal.classList.remove("active");
-  shadow.classList.remove("active");
-  let counter = 0;
+function handleLevel(string)
+{
+    if(string==='Easy')
+timerStart();
+    else if(string==='Medium')
+timerStart();
+    else if(string==='Hard')
+timerStart();
+    
+}
+function timerStart(){
+      let counter = 0;
   const interval = setInterval(function(){
     counter++;
     console.log()
     timer.innerHTML = "<b>" + counter + "</b>";
 }, 1000);
-setInterval();
 }
-
+function closeModal() {
+  modal.classList.remove("active");
+  shadow.classList.remove("active");
+}
+function hideButton(){
+    document.getElementById('hide').style.display ="none";
+}
 function openModal() {
   modal.classList.add("active");
   shadow.classList.add("active");

@@ -176,6 +176,7 @@ header{
 }
 .modal__close-button {
     --pg: 0.8em 1.4em;
+    width: 10em;
     margin-bottom: 10px;
     border: var(--primary-button_br, none);
     cursor: pointer;
