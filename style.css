@@ -61,6 +61,13 @@ header{
 }
 
 /* Mute button */
+#mute-toggle{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 10px;
+}
+
 #mute-btn {
     float: right;
     padding-left: 5px;
