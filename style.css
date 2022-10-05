@@ -61,7 +61,7 @@ header{
 }
 
 /* Mute button */
-#mute-toggle{
+#toggle-sound{
     position: absolute;
     bottom: 0;
     right: 0;
