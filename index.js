@@ -3,7 +3,7 @@ function restartGame(){
 }
 
 // Wrapping entire code in anonymous function and calling it, so that user doesn't have access to cardImageSrcs
-(() => {
+const game = (level) => {
     const cards = document.querySelectorAll('.memory-card')
     const restartBtn = document.querySelector('#restart-btn')
     const timer = document.querySelector('#timer')
@@ -110,39 +110,37 @@ function restartGame(){
             setTimeout(checkForMatch,100); // Adding a small delay, so that card gets enough time to render updated src before alert pops up
         }
     }
-
+    function timerStart(){
+        let counter = 0;
+    const interval = setInterval(function(){
+      counter++;
+      timer.innerHTML = "<b>" + counter + "</b>";
+  }, 1000);
+  }
+  timerStart();
     cards.forEach((card, i)=>{
         card.addEventListener('click',e=>flipCard(e, i)); // Passing index of card when calling flipCard
     })
-})();
+};
 const modal = document.getElementById("modal");
 const shadow = document.getElementById("shadow");
-
 window.onclick = (e) => {
-  if (e.target === shadow) {
-    closeModal();
-  }
+    if (e.target === shadow) {
+        closeModal();
+    }
 };
-let counter=0;
-let time=null;
-function addCounter()
-{
-    counter++;
-    timer.innerHTML=counter+"</br>";
-}
 function handleLevel(level)
 {
-    if(time) return;
-    time= setInterval(addCounter,1000);
+    game(level);
 }
 function closeModal() {
-  modal.classList.remove("active");
-  shadow.classList.remove("active");
+    modal.classList.remove("active");
+    shadow.classList.remove("active");
 }
 function hideButton(){
     document.getElementById('start-btn').style.display ="none";
 }
 function openModal() {
-  modal.classList.add("active");
+    modal.classList.add("active");
   shadow.classList.add("active");
 }
