@@ -9,8 +9,7 @@ function toggleSound(){
 
 // Wrapping entire code in anonymous function and calling it, so that user doesn't have access to cardImageSrcs
 (() => {
-    const cards = document.querySelectorAll('.memory-card')
-    const restartBtn = document.querySelector('#restart-btn')
+    const cards = document.querySelectorAll('.memory-card');
     const timer = document.querySelector('#timer')
     const bestTimer = document.querySelector('#best--timer');
     //retrieve best score from the local storage
@@ -23,12 +22,16 @@ function toggleSound(){
     bestTimer.innerHTML = "<b>" + (bestScore == null ? "-" : bestScore) + "</b>";
     let counter = 0;
     //increasing the counter
-
     const interval = setInterval(function(){
         counter++;
         console.log()
         timer.innerHTML = "<b>" + counter + "</b>";
     }, 1000);
+
+    //if the modal close button is clicked, change the display of modal to none
+    document.querySelector('#modal--close').addEventListener('click', () => {
+        document.querySelector('.modal').style.display = "none";
+    })
 
     // Storing image sources for list of cards
     // Storing it as a list and not a matrix to make it a bit difficult to map list to the 3x4 grid
@@ -75,6 +78,7 @@ function toggleSound(){
             matched++;
             if(matched===6)
             {
+
                 if(audioState)audioWin.play(); // Win.mp3 plays if the game is complete
                 //print the updated best score on the page
                 if(bestScore == null) 
@@ -85,7 +89,9 @@ function toggleSound(){
                 //store the best score on the local storage
                 localStorage.setItem("memory-game-best-score", bestScore);
                 bestTimer.innerHTML = "<b>" + bestScore + "</b>";
+                document.querySelector('#modal--time').innerHTML = counter + " seconds";
                 clearInterval(interval)
+                document.querySelector('.modal').style.display = "flex";
             }
             else
             {
