@@ -146,7 +146,8 @@ header{
     height: 100%;
 }
 .front-face{
-    object-fit: cover;
+    object-fit: scale-down;
+    /* object-fit: cover; */
     /* object-position: top center; */
 
 }
