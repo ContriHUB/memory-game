@@ -18,6 +18,12 @@ function toggleSound(){
     var audioSuccess = new Audio("./audios/Success.mp3");
     var audioFail = new Audio("./audios/Fail.mp3");
     var audioWin = new Audio("./audios/Win.mp3");
+    function audioPause(){
+        audioSuccess.pause()
+        audioSuccess.currentTime=0
+        audioFail.pause()
+        audioFail.currentTime=0
+    }
     //initialise with the best score
     bestTimer.innerHTML = "<b>" + (bestScore == null ? "-" : bestScore) + "</b>";
     let counter = 0;
@@ -78,7 +84,11 @@ function toggleSound(){
             matched++;
             if(matched===6)
             {
-                if(audioState)audioWin.play(); // Win.mp3 plays if the game is complete
+                
+                if(audioState){
+                    audioPause();
+                    audioWin.play(); // Win.mp3 plays if the game is complete
+                }
                 //print the updated best score on the page
                 if(bestScore == null) 
                     bestScore = counter;
@@ -94,7 +104,10 @@ function toggleSound(){
             }
             else
             {
-                if(audioState)audioSuccess.play(); // Success.mp3 plays if correct match
+                if(audioState){
+                    audioPause();
+                    audioSuccess.play(); // Success.mp3 plays if correct match
+                }
             }    
             
         }
@@ -106,7 +119,10 @@ function toggleSound(){
                 flippedCard.children[0].alt="card front face"; // Removing image alt so that it isn't visible through HTML
                 flippedCard.children[1].style.display="block";
             })
-            if(audioState)audioFail.play(); // Fail.mp3 plays if not correct match
+            if(audioState){
+                audioPause();
+                audioFail.play(); // Fail.mp3 plays if not correct match
+            }
         }
 
         flippedCards.length= 0;
