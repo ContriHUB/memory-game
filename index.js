@@ -1,6 +1,11 @@
 function restartGame(){
     window.location.reload()
 }
+//Mute audio functionality
+var audioState=true;
+function toggleSound(){
+    audioState= !audioState;
+}
 
 // Wrapping entire code in anonymous function and calling it, so that user doesn't have access to cardImageSrcs
 (() => {
@@ -28,6 +33,16 @@ function restartGame(){
     const bestTimer = document.querySelector('#best--timer');
     //retrieve best score from the local storage
     let bestScore = localStorage.getItem("memory-game-best-score");
+    // audio variables
+    var audioSuccess = new Audio("./audios/Success.mp3");
+    var audioFail = new Audio("./audios/Fail.mp3");
+    var audioWin = new Audio("./audios/Win.mp3");
+    function audioPause(){
+        audioSuccess.pause()
+        audioSuccess.currentTime=0
+        audioFail.pause()
+        audioFail.currentTime=0
+    }
     //initialise with the best score
     bestTimer.innerHTML = "<b>" + (bestScore == null ? "-" : bestScore) + "</b>";
     let counter = 0;
@@ -94,7 +109,11 @@ function restartGame(){
             matched++;
             if(matched === noOfCards / 2)
             {
-                // alert("hurrah! you did it")
+                
+                if(audioState){
+                    audioPause();
+                    audioWin.play(); // Win.mp3 plays if the game is complete
+                }
                 //print the updated best score on the page
                 if(bestScore == null) 
                     bestScore = counter;
@@ -109,7 +128,12 @@ function restartGame(){
                 document.querySelector('.modal').style.display = "flex";
             }
             else
-            alert("woah! matched")
+            {
+                if(audioState){
+                    audioPause();
+                    audioSuccess.play(); // Success.mp3 plays if correct match
+                }
+            }    
             
         }
         //if not matched
@@ -120,7 +144,10 @@ function restartGame(){
                 flippedCard.children[0].alt="card front face"; // Removing image alt so that it isn't visible through HTML
                 flippedCard.children[1].style.display="block";
             })
-            alert("haha! better luck next time");
+            if(audioState){
+                audioPause();
+                audioFail.play(); // Fail.mp3 plays if not correct match
+            }
         }
 
         flippedCards.length= 0;

@@ -61,6 +61,68 @@ header{
     background-color: #6688bc;
 }
 
+/* Mute button */
+#toggle-sound{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 10px;
+}
+
+#mute-btn {
+    float: right;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.mute-toggle-input{
+	height: 0;
+	width: 0;
+	visibility: hidden;
+    float: right;
+}
+
+.mute-toggle-label {
+	cursor: pointer;
+	text-indent: -45px;
+    text-shadow: #004d7a;
+	width: 40px;
+	height: 22px;
+	background: grey;
+	display: block;
+	border-radius: 100px;
+	position: relative;
+    float: right;
+
+}
+
+.mute-toggle-label:after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 16px;
+    height: 16px;
+    background: #fff;
+    border-radius: 100px;
+    transition: 0.3s;
+    float: right;
+
+}
+
+.mute-toggle-input:checked + .mute-toggle-label {
+	background: #bada55;
+}
+
+.mute-toggle-input:checked + .mute-toggle-label:after {
+	left: calc(100% - 5px);
+	transform: translateX(-100%);
+}
+
+.mute-toggle-label:active:after {
+	width: 20px;
+}
+/* Mute button ends */
 .time--stat {
     width: 80vmin;
     margin: auto;
