@@ -9,7 +9,7 @@ function toggleSound(){
 
 // Wrapping entire code in anonymous function and calling it, so that user doesn't have access to cardImageSrcs
 (() => {
-    let level = window.prompt("ask me?", "1/2/3");
+    let level = window.prompt("Choose a level", "1/2/3");
     const noOfCards = level == 1 ? 12 : (level == 2 ? 20 : 24) ;
     for(let i = 0; i < noOfCards; i++) {
         var newCard = document.createElement("div");
