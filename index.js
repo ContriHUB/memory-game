@@ -9,13 +9,8 @@ function toggleSound(){
 
 // Wrapping entire code in anonymous function and calling it, so that user doesn't have access to cardImageSrcs
 (() => {
-    const game = document.querySelector('.memory-game');
-  function openM(){
-    alert("man");
-  }
     let level = window.prompt("ask me?", "1/2/3");
     const noOfCards = level == 1 ? 12 : (level == 2 ? 20 : 24) ;
-    console.log(noOfCards);
     for(let i = 0; i < noOfCards; i++) {
         var newCard = document.createElement("div");
         newCard.classList.add("memory-card");
@@ -54,7 +49,6 @@ function toggleSound(){
     //increasing the counter
     const interval = setInterval(function(){
         counter++;
-        console.log()
         timer.innerHTML = "<b>" + counter + "</b>";
     }, 1000);
 
@@ -64,40 +58,27 @@ function toggleSound(){
     })
 
     // Storing image sources for list of cards
-    // Storing it as a list and not a matrix to make it a bit difficult to map list to the 3x4 grid
     const cardImageSrcs = [
         //need upto 12 cards for level 1
         'images/cards/rengoku.png',
-        'images/cards/rengoku.png',
-        'images/cards/zenitsu.png',
         'images/cards/zenitsu.png',
         'images/cards/inosuke.png',
-        'images/cards/inosuke.png',
-        'images/cards/nezuko.png',
         'images/cards/nezuko.png',
         'images/cards/mask.png',
-        'images/cards/mask.png',
-        'images/cards/tanjiro.png',
         'images/cards/tanjiro.png',
         //need upto 20 cards for level 2
         'images/cards/inosuke2.png',
-        'images/cards/inosuke2.png',
-        'images/cards/kanao.png',
         'images/cards/kanao.png',
         'images/cards/kimetsu.png',
-        'images/cards/kimetsu.png',
-        'images/cards/nezuko2.png',
         'images/cards/nezuko2.png',
         //need upto 24 cards for level 3
         'images/cards/tokito.png',
-        'images/cards/tokito.png',
-        'images/cards/genya.png',
         'images/cards/genya.png',
     ];
 
-    //slice the array of image source up to the number of cards needed
-    const cardArray = cardImageSrcs.slice(0,noOfCards);
-    // console.log(cardArray)
+    //generate the card array from the image sources
+    const cardArray = cardImageSrcs.slice(0,noOfCards / 2);
+    cardArray.push(...cardArray);
 
     const flippedCards = []
     let matched=0;
