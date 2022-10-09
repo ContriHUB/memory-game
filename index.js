@@ -22,7 +22,7 @@ function restartGame(){
     }, 1000);
 
     // refresh when reload
-    const showAllCards = (time)=>{
+    const showAllCards = ()=>{
         cards.forEach((card, i)=>{
             card.children[0].src=cardImageSrcs[i]; // Setting image source for flipped front face
             card.children[0].alt=cardImageSrcs[i].split('/').slice(-1)[0].split('.').slice(0, -1).join('.'); // Setting image file name as alt text for flipped front face
@@ -36,7 +36,7 @@ function restartGame(){
                 card.children[1].style.display="block";
             })
             counter = 0;
-        }, time);
+        }, 5000);
     }
     // Storing image sources for list of cards
     // Storing it as a list and not a matrix to make it a bit difficult to map list to the 3x4 grid
@@ -76,7 +76,7 @@ function restartGame(){
     // Shuffling cards
     shuffle(cardImageSrcs);
     //refresh when reload
-    showAllCards(5000);
+    showAllCards();
     function checkForMatch(){
         //if matched
         if(flippedCards[0].children[0].src===flippedCards[1].children[0].src) // Checking if the flipped cards have same src i.e are matching
