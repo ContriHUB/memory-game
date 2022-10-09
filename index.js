@@ -82,24 +82,32 @@ function toggleSound(){
 
     const flippedCards = []
     let matched=0;
+    // set image src when either card flip or show all cards
+    const setImgSource = (card, i) =>{
+        card.children[0].src=cardArray[i]; // Setting image source for flipped front face
+        card.children[0].alt=cardArray[i].split('/').slice(-1)[0].split('.').slice(0, -1).join('.'); // Setting image file name as alt text for flipped front face
+        card.children[1].style.display="none";
+    }
 
+    // unset image src when either card flip or show all cards
+    const unsetImgSource = (card) =>{
+        card.children[0].src="#"; // Removing image src so that it isn't visible through HTML
+        card.children[0].alt="card front face"; // Removing image alt so that it isn't visible through HTML
+        card.children[1].style.display="block";
+    }
     // refresh when reload
+    const cardShowDuration = 5000;
     const showAllCards = ()=>{
-        console.log(cardArray);
         cards.forEach((card, i)=>{
-            card.children[0].src=cardArray[i]; // Setting image source for flipped front face
-            card.children[0].alt=cardArray[i].split('/').slice(-1)[0].split('.').slice(0, -1).join('.'); // Setting image file name as alt text for flipped front face
-            card.children[1].style.display="none";
+            setImgSource(card, i);
         })
         
         setTimeout(()=>{
             cards.forEach((card)=>{
-                card.children[0].src="#"; // Removing image src so that it isn't visible through HTML
-                card.children[0].alt="card front face"; // Removing image alt so that it isn't visible through HTML
-                card.children[1].style.display="block";
+                unsetImgSource(card);
             })
             counter = 0;
-        }, 5000);
+        }, cardShowDuration);
     }
 
     function shuffle(array) {
@@ -162,9 +170,7 @@ function toggleSound(){
         else
         {
             flippedCards.forEach(flippedCard=>{
-                flippedCard.children[0].src="#"; // Removing image src so that it isn't visible through HTML
-                flippedCard.children[0].alt="card front face"; // Removing image alt so that it isn't visible through HTML
-                flippedCard.children[1].style.display="block";
+                unsetImgSource(flippedCard);
             })
             if(audioState){
                 audioPause();
@@ -183,9 +189,7 @@ function toggleSound(){
             return;
 
         flippedCards.push(card)
-        card.children[0].src=cardArray[i]; // Setting image source for flipped front face
-        card.children[0].alt=cardArray[i].split('/').slice(-1)[0].split('.').slice(0, -1).join('.'); // Setting image file name as alt text for flipped front face
-        card.children[1].style.display="none";
+        setImgSource(card, i);
 
         //when we have filled two cards check for the match
         if(flippedCards.length === 2)
