@@ -21,6 +21,23 @@ function restartGame(){
         timer.innerHTML = "<b>" + counter + "</b>";
     }, 1000);
 
+    // refresh when reload
+    const showAllCards = (time)=>{
+        cards.forEach((card, i)=>{
+            card.children[0].src=cardImageSrcs[i]; // Setting image source for flipped front face
+            card.children[0].alt=cardImageSrcs[i].split('/').slice(-1)[0].split('.').slice(0, -1).join('.'); // Setting image file name as alt text for flipped front face
+            card.children[1].style.display="none";
+        })
+        
+        setTimeout(()=>{
+            cards.forEach((card)=>{
+                card.children[0].src="#"; // Removing image src so that it isn't visible through HTML
+                card.children[0].alt="card front face"; // Removing image alt so that it isn't visible through HTML
+                card.children[1].style.display="block";
+            })
+            counter = 0;
+        }, time);
+    }
     // Storing image sources for list of cards
     // Storing it as a list and not a matrix to make it a bit difficult to map list to the 3x4 grid
     const cardImageSrcs = [
@@ -58,7 +75,8 @@ function restartGame(){
     }
     // Shuffling cards
     shuffle(cardImageSrcs);
-
+    //refresh when reload
+    showAllCards(5000);
     function checkForMatch(){
         //if matched
         if(flippedCards[0].children[0].src===flippedCards[1].children[0].src) // Checking if the flipped cards have same src i.e are matching
