@@ -23,55 +23,26 @@
       </span>
     </h3>
     <section class="memory-game">
+      <!-- 
         <div class="memory-card">
           <img class="front-face" src="#" alt="card front face" />
           <img class="back-face" src="images/cover.png" alt="card cover" />
-        </div>
-        <div class="memory-card">
-          <img class="front-face" src="#" alt="card front face" />
-          <img class="back-face" src="images/cover.png" alt="card cover" />
-        </div>
-        <div class="memory-card">
-          <img class="front-face" src="#" alt="card front face" />
-          <img class="back-face" src="images/cover.png" alt="card cover" />
-        </div>
-        <div class="memory-card">
-          <img class="front-face" src="#" alt="card front face" />
-          <img class="back-face" src="images/cover.png" alt="card cover" />
-        </div>
-        <div class="memory-card">
-          <img class="front-face" src="#" alt="card front face" />
-          <img class="back-face" src="images/cover.png" alt="card cover" />
-        </div>
-        <div class="memory-card">
-          <img class="front-face" src="#" alt="card front face" />
-          <img class="back-face" src="images/cover.png" alt="card cover" />
-        </div>
-        <div class="memory-card">
-          <img class="front-face" src="#" alt="card front face" />
-          <img class="back-face" src="images/cover.png" alt="card cover" />
-        </div>
-        <div class="memory-card">
-          <img class="front-face" src="#" alt="card front face" />
-          <img class="back-face" src="images/cover.png" alt="card cover" />
-        </div>
-        <div class="memory-card">
-          <img class="front-face" src="#" alt="card front face" />
-          <img class="back-face" src="images/cover.png" alt="card cover" />
-        </div>
-        <div class="memory-card">
-          <img class="front-face" src="#" alt="card front face" />
-          <img class="back-face" src="images/cover.png" alt="card cover" />
-        </div>
-        <div class="memory-card">
-          <img class="front-face" src="#" alt="card front face" />
-          <img class="back-face" src="images/cover.png" alt="card cover" />
-        </div>
-        <div class="memory-card">
-          <img class="front-face" src="#" alt="card front face" />
-          <img class="back-face" src="images/cover.png" alt="card cover" />
-        </div>
-        
+        </div> 
+      -->  
       </section>
+      <div id="toggle-sound">
+        <span id="mute-btn">Mute</span>
+        <input class="mute-toggle-input" onclick="toggleSound()" type="checkbox" id="switch" /><label class="mute-toggle-label"for="switch"></label>
+      </div>
+
+      <div class="modal">
+        <div class="modal--container">
+          <div id="modal--close">+</div>
+          <div>
+            Hurray!! You won the game.</div>
+          <div>Time Taken: <span id="modal--time">0</span></div>
+          <button class="modal--btn" onclick="restartGame()">Replay</button>
+        </div>
+      </div>
 </body>
 </html>

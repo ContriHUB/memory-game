@@ -1,23 +1,54 @@
 function restartGame(){
     window.location.reload()
 }
+//Mute audio functionality
+var audioState=true;
+function toggleSound(){
+    audioState= !audioState;
+}
 
 // Wrapping entire code in anonymous function and calling it, so that user doesn't have access to cardImageSrcs
 (() => {
-    const cards = document.querySelectorAll('.memory-card')
-    const restartBtn = document.querySelector('#restart-btn')
+    let level = window.prompt("Choose a level", "1/2/3");
+    const noOfCards = level == 1 ? 12 : (level == 2 ? 20 : 24) ;
+    for(let i = 0; i < noOfCards; i++) {
+        var newCard = document.createElement("div");
+        newCard.classList.add("memory-card");
+        var img1 = document.createElement("img");
+        img1.classList.add("front-face");
+        img1.src = "#";
+        img1.alt = "card front face";
+        var img2 = document.createElement("img");
+        img2.classList.add("back-face");
+        img2.src = "images/cover.png";
+        img2.alt = "card cover";
+
+        newCard.appendChild(img1);
+        newCard.appendChild(img2);
+
+        document.querySelector('.memory-game').appendChild(newCard); 
+    }
+    const cards = document.querySelectorAll('.memory-card');
     const timer = document.querySelector('#timer')
     const bestTimer = document.querySelector('#best--timer');
     //retrieve best score from the local storage
     let bestScore = localStorage.getItem("memory-game-best-score");
+    // audio variables
+    var audioSuccess = new Audio("./audios/Success.mp3");
+    var audioFail = new Audio("./audios/Fail.mp3");
+    var audioWin = new Audio("./audios/Win.mp3");
+    function audioPause(){
+        audioSuccess.pause()
+        audioSuccess.currentTime=0
+        audioFail.pause()
+        audioFail.currentTime=0
+    }
     //initialise with the best score
     bestTimer.innerHTML = "<b>" + (bestScore == null ? "-" : bestScore) + "</b>";
     let counter = 0;
     //increasing the counter
-
     const interval = setInterval(function(){
         counter++;
-        console.log()
         timer.innerHTML = "<b>" + counter + "</b>";
     }, 1000);
 
@@ -38,27 +69,39 @@ function restartGame(){
             counter = 0;
         }, 5000);
     }
+    //if the modal close button is clicked, change the display of modal to none
+    document.querySelector('#modal--close').addEventListener('click', () => {
+        document.querySelector('.modal').style.display = "none";
+    })
+
     // Storing image sources for list of cards
-    // Storing it as a list and not a matrix to make it a bit difficult to map list to the 3x4 grid
     const cardImageSrcs = [
-        'images/cards/inosuke.png',
-        'images/cards/nezuko.png',
+        //need upto 12 cards for level 1
         'images/cards/rengoku.png',
-        'images/cards/mask.png',
-        'images/cards/tanjiro.png',
         'images/cards/zenitsu.png',
         'images/cards/inosuke.png',
         'images/cards/nezuko.png',
-        'images/cards/rengoku.png',
         'images/cards/mask.png',
         'images/cards/tanjiro.png',
-        'images/cards/zenitsu.png',
+        //need upto 20 cards for level 2
+        'images/cards/inosuke2.png',
+        'images/cards/kanao.png',
+        'images/cards/kimetsu.png',
+        'images/cards/nezuko2.png',
+        //need upto 24 cards for level 3
+        'images/cards/tokito.png',
+        'images/cards/genya.png',
     ];
+
+    //generate the card array from the image sources
+    const cardArray = cardImageSrcs.slice(0,noOfCards / 2);
+    cardArray.push(...cardArray);
+
     const flippedCards = []
     let matched=0;
 
     function shuffle(array) {
-        let currentIndex = array.length,  randomIndex;
+        let currentIndex = noOfCards,  randomIndex;
     
         // While there remain elements to shuffle.
         while (currentIndex != 0) {
@@ -82,9 +125,13 @@ function restartGame(){
         if(flippedCards[0].children[0].src===flippedCards[1].children[0].src) // Checking if the flipped cards have same src i.e are matching
         {        
             matched++;
-            if(matched===6)
+            if(matched === noOfCards / 2)
             {
-                alert("hurrah! you did it")
+                
+                if(audioState){
+                    audioPause();
+                    audioWin.play(); // Win.mp3 plays if the game is complete
+                }
                 //print the updated best score on the page
                 if(bestScore == null) 
                     bestScore = counter;
@@ -94,10 +141,17 @@ function restartGame(){
                 //store the best score on the local storage
                 localStorage.setItem("memory-game-best-score", bestScore);
                 bestTimer.innerHTML = "<b>" + bestScore + "</b>";
+                document.querySelector('#modal--time').innerHTML = counter + " seconds";
                 clearInterval(interval)
+                document.querySelector('.modal').style.display = "flex";
             }
             else
-            alert("woah! matched")
+            {
+                if(audioState){
+                    audioPause();
+                    audioSuccess.play(); // Success.mp3 plays if correct match
+                }
+            }    
             
         }
         //if not matched
@@ -108,7 +162,10 @@ function restartGame(){
                 flippedCard.children[0].alt="card front face"; // Removing image alt so that it isn't visible through HTML
                 flippedCard.children[1].style.display="block";
             })
-            alert("haha! better luck next time");
+            if(audioState){
+                audioPause();
+                audioFail.play(); // Fail.mp3 plays if not correct match
+            }
         }
 
         flippedCards.length= 0;
@@ -122,8 +179,8 @@ function restartGame(){
             return;
 
         flippedCards.push(card)
-        card.children[0].src=cardImageSrcs[i]; // Setting image source for flipped front face
-        card.children[0].alt=cardImageSrcs[i].split('/').slice(-1)[0].split('.').slice(0, -1).join('.'); // Setting image file name as alt text for flipped front face
+        card.children[0].src=cardArray[i]; // Setting image source for flipped front face
+        card.children[0].alt=cardArray[i].split('/').slice(-1)[0].split('.').slice(0, -1).join('.'); // Setting image file name as alt text for flipped front face
         card.children[1].style.display="none";
 
         //when we have filled two cards check for the match

@@ -32,8 +32,24 @@
             </sub>
         </a>
     </td>
+    <td align="center">
+        <a href="https://github.com/JainendraDwivedi">
+            <img src="https://avatars.githubusercontent.com/u/75388379?v=4" width="100px;" alt="Jainendra Dwivedi"/>
+            <br />
+            <sub>
+                <b>Jainendra Dwivedi</b>
+            </sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/Prakhar1106">
+            <img src="https://avatars.githubusercontent.com/u/52492574?s=96&v=4" width="100px;" alt="Prakhar Gupta"/>
+            <br />
+            <sub>
+                <b>Prakhar Gupta</b>
+            </sub>
+        </a>
+    </td>
   </tr>
-  
-  
 </table>
 
