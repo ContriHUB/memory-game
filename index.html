@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>memory game</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>memory game</title>
 </head>
+
 <body>
-    <script src="index.js" defer></script>
-    <header>
-      <img src="images/logo.jpg" height="50px" width="50px" alt="logo" class="logo">
-      <h1>memory game</h1>
-      <button id="restart-btn" onclick="restartGame()">restart</button>
-    </header>
-    <h4 class="time--stat" style="text-align:center">
-      <span>
-        Best time: <span id="best--timer">-</span>
-      </span>
-      <span>
-        time:<span id="timer">0</span>
-      </span>
+  <script src="index.js" defer></script>
+  <header>
+    <img src="images/logo.jpg" height="50px" width="50px" alt="logo" class="logo">
+    <h1>memory game</h1>
+    <button class="button-restart" id="restart-btn" onclick="restartGame()">restart</button>
+  </header>
+  <h4 class="time--stat" style="text-align:center">
+    <span>
+      Best time: <span id="best--timer">-</span>
+    </span>
+    <span>
+      time:<span id="timer">0</span>
+    </span>
     </h3>
     <section class="memory-game">
       <!-- 
@@ -28,21 +30,23 @@
           <img class="front-face" src="#" alt="card front face" />
           <img class="back-face" src="images/cover.png" alt="card cover" />
         </div> 
-      -->  
-      </section>
-      <div id="toggle-sound">
-        <span id="mute-btn">Mute</span>
-        <input class="mute-toggle-input" onclick="toggleSound()" type="checkbox" id="switch" /><label class="mute-toggle-label"for="switch"></label>
-      </div>
+      -->
+    </section>
+    <div id="toggle-sound">
+      <span id="mute-btn">Mute</span>
+      <input class="mute-toggle-input" onclick="toggleSound()" type="checkbox" id="switch" /><label
+        class="mute-toggle-label" for="switch"></label>
+    </div>
 
-      <div class="modal">
-        <div class="modal--container">
-          <div id="modal--close">+</div>
-          <div>
-            Hurray!! You won the game.</div>
-          <div>Time Taken: <span id="modal--time">0</span></div>
-          <button class="modal--btn" onclick="restartGame()">Replay</button>
-        </div>
+    <div class="modal">
+      <div class="modal--container">
+        <div id="modal--close">+</div>
+        <div>
+          Hurray!! You won the game.</div>
+        <div>Time Taken: <span id="modal--time">0</span></div>
+        <button class="modal--btn" onclick="restartGame()">Replay</button>
       </div>
+    </div>
 </body>
+
 </html>
