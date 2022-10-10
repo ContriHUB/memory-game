@@ -127,7 +127,7 @@ function toggleSound(){
         return array;
     }
     // Shuffling cards
-    shuffle(cardImageSrcs);
+    shuffle(cardArray);
 
     //refresh when reload
     showAllCards();
