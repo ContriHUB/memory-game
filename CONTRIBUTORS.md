@@ -50,6 +50,14 @@
             </sub>
         </a>
     </td>
+        <td align="center">
+        <a href="https://github.com/SyarifulMsth">
+            <img src="https://avatars.githubusercontent.com/u/96466588?v=4" width="100px;" alt="Syariful Msth"/>
+            <br />
+            <sub>
+                <b>Syariful Msth</b>
+            </sub>
+        </a>
+    </td>
   </tr>
 </table>
-
