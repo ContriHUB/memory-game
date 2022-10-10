@@ -39,18 +39,91 @@ header{
     background-color: rgba(255, 255, 255, 0.289);
     padding: 10px 0px;
 }
+.left-wrapper,
+.right-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+}
 
-#restart-btn, .modal--btn{
+/* popup model box at beginning styling start here  */
+.model-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 99;
+  transform: scale(0);
+}
+.model-container .model {
+  width: 300px;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #fff;
+  z-index: 100;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  text-align: center;
+  position: relative;
+}
+
+.model-container .model h3 {
+  color: #333;
+  font-size: 20px;
+  margin: 10px 0;
+}
+.model-container .model .levels {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.model-container .model button {
+  height: 35px;
+  width: 120px;
+  background: #333;
+  outline: none;
+  border: none;
+  border-radius: 50px;
+  color: #fff;
+  font-size: 17px;
+  margin: 10px;
+  cursor: pointer;
+}
+.model-container .model button:hover {
+  opacity: 0.8;
+}
+.model-container .model .fa-times {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 25px;
+  cursor: pointer;
+  color: #333;
+}
+/* popup model box at beginning styling end here  */
+
+/*  box at begining behaviour on javaScript condition */
+.popupBox{
+  transition: all 0.5s;
+  transform: scale(1);
+}
+#start-btn,#restart-btn, .modal--btn{
     margin-right: 15px;
     text-transform: capitalize;
-    padding: 7px;
+    padding: 10px 15px;
     border: none;
     border-radius: 10px;
     outline: none;
-    font-weight: bold;
+    font-weight: normal;
     background-color: #729ddc;
     cursor: pointer;
     color: white;
+    cursor: pointer !important;
 }
 
 #restart-btn:hover, .modal--btn:hover {

@@ -23,6 +23,16 @@
         </a>
         <br />
     </td>
+       <td align="center">
+        <a href="https://github.com/ManishSheela">
+            <img src="https://avatars.githubusercontent.com/u/96982207?v=4" width="100px;" alt="Harsh Narayan"/>
+            <br />
+            <sub>
+                <b>Manish Sheela</b>
+            </sub>
+        </a>
+        <br />
+    </td>
     <td align="center">
         <a href="https://github.com/DNA5769">
             <img src="https://avatars.githubusercontent.com/u/40732639?v=4" width="100px;" alt="Lovedeep singh kamal"/>
