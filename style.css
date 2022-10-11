@@ -59,7 +59,7 @@ header{
   left: 0;
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 99;
-  transform: scale(0);
+  transform: scale(1);
 }
 .model-container .model {
   width: 300px;

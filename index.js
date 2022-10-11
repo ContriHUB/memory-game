@@ -46,7 +46,8 @@ function toggleSound() {
       document.querySelectorAll(".memory-card").forEach((card, i) => {
         card.addEventListener("click", (e) => flipCard(e, i)); // Passing index of card when calling flipCard
       });
-      popup_box.classList.remove("popupBox");
+      // popup_box.classList.remove("popupBox");
+      popup_box.style.transform = "scale(0)";
       setTimer();
     });
   });
@@ -70,12 +71,12 @@ function toggleSound() {
     counter = 0;
     clearInterval(interval);
     timer.innerHTML = "<b>" + 0 + "</b>";
-    popup_box.classList.add("popupBox");
+    popup_box.style.transform = "scale(1)";
   });
 
   // closing the popup model on clicking fontawesome fa-fa cross icon
   document.querySelector(".fa-times").addEventListener("click", () => {
-    popup_box.classList.remove("popupBox");
+   popup_box.style.transform = "scale(0)";
   });
 
   // everytime remove childs of  memory-game card when user choose level again
