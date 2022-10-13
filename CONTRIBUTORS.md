@@ -50,6 +50,15 @@
             </sub>
         </a>
     </td>
+     <td align="center">
+        <a href="https://github.com/always0p">
+            <img src="https://avatars.githubusercontent.com/u/89314451?s=400&v=4" width="100px;" alt="Jaspal singh"/>
+            <br />
+            <sub>
+                <b>Jaspal singh</b>
+            </sub>
+        </a>
+    </td>
   </tr>
 </table>
 
