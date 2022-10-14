@@ -50,6 +50,15 @@
             </sub>
         </a>
     </td>
+    <td align="center">
+        <a href="https://github.com/003prem">
+            <img src="https://avatars.githubusercontent.com/u/52492574?s=96&v=4" width="100px;" alt="Prem Kishor"/>
+            <br />
+            <sub>
+                <b>Prem Kishor</b>
+            </sub>
+        </a>
+    </td>
   </tr>
 </table>
 
