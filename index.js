@@ -82,29 +82,42 @@ function toggleSound(){
 
     const flippedCards = []
     let matched=0;
-    // set image src when either card flip or show all cards
+    // set image src once at start of game
     const setImgSource = (card, i) =>{
-        card.children[0].src=cardArray[i]; // Setting image source for flipped front face
+        card.children[0].src = cardArray[i]; // Setting image source for flipped front face
+        card.children[1].src = 'images/cover.png'; //Setting image source for back face
         card.children[0].alt=cardArray[i].split('/').slice(-1)[0].split('.').slice(0, -1).join('.'); // Setting image file name as alt text for flipped front face
-        card.children[1].style.display="none";
+
+        //Addition transition to the card
+        card.style.transition = "transform 1s";
     }
 
     // unset image src when either card flip or show all cards
-    const unsetImgSource = (card) =>{
-        card.children[0].src="#"; // Removing image src so that it isn't visible through HTML
-        card.children[0].alt="card front face"; // Removing image alt so that it isn't visible through HTML
-        card.children[1].style.display="block";
+    // const unsetImgSource = (card) =>{
+    //     card.children[0].src="#"; // Removing image src so that it isn't visible through HTML
+    //     card.children[0].alt="card front face"; // Removing image alt so that it isn't visible through HTML
+    //     card.children[1].style.display="block";
+    // }
+
+    //Function to flip the whole card
+    const flipImg = (card) => {
+        card.classList.toggle('flip');
     }
+
     // refresh when reload
     const cardShowDuration = 5000;
     const showAllCards = ()=>{
-        cards.forEach((card, i)=>{
+        cards.forEach((card, i) => {
+            //Setting image source
             setImgSource(card, i);
+            //Revealing the images
+            flipImg(card);
         })
         
         setTimeout(()=>{
-            cards.forEach((card)=>{
-                unsetImgSource(card);
+            cards.forEach((card) => {
+                //Flipping the cards
+                flipImg(card);
             })
             counter = 0;
         }, cardShowDuration);
@@ -170,8 +183,11 @@ function toggleSound(){
         else
         {
             flippedCards.forEach(flippedCard=>{
-                unsetImgSource(flippedCard);
+                setTimeout(() => {
+                    flipImg(flippedCard);                    
+                }, 1000);
             })
+
             if(audioState){
                 audioPause();
                 audioFail.play(); // Fail.mp3 plays if not correct match
@@ -185,11 +201,11 @@ function toggleSound(){
         const card = e.target
 
         // This means that card is already flipped currently, so we exit out of function
-        if (card.children[0].src!==window.location.href+"#")
+        if (card.classList.contains('flip'))
             return;
 
         flippedCards.push(card)
-        setImgSource(card, i);
+        flipImg(card);
 
         //when we have filled two cards check for the match
         if(flippedCards.length === 2)
