@@ -31,8 +31,10 @@ function toggleSound(){
     const cards = document.querySelectorAll('.memory-card');
     const timer = document.querySelector('#timer')
     const bestTimer = document.querySelector('#best--timer');
-    //retrieve best score from the local storage
+    const bestPoint = document.querySelector('#best--point');
+    //retrieve best score & point from the local storage
     let bestScore = localStorage.getItem("memory-game-best-score");
+    let point = localStorage.getItem("memory-game-best-point");
     // audio variables
     var audioSuccess = new Audio("./audios/Success.mp3");
     var audioFail = new Audio("./audios/Fail.mp3");
@@ -45,10 +47,16 @@ function toggleSound(){
     }
     //initialise with the best score
     bestTimer.innerHTML = "<b>" + (bestScore == null ? "-" : bestScore) + "</b>";
+    //intialise with the best point
+    bestPoint.innerHTML = "<b>" + (point == null ? "-" : point) + "</b>";
     let counter = 0;
     //increasing the counter
+
+    let currentPoint = 0;  //point of current game
+    let maxPoint=100;  //setting max points
     const interval = setInterval(function(){
         counter++;
+        currentPoint = maxPoint - counter*(4-level);
         timer.innerHTML = "<b>" + counter + "</b>";
     }, 1000);
 
@@ -131,7 +139,8 @@ function toggleSound(){
 
     //refresh when reload
     showAllCards();
-    
+
+
     function checkForMatch(){
         //if matched
         if(flippedCards[0].children[0].src===flippedCards[1].children[0].src) // Checking if the flipped cards have same src i.e are matching
@@ -144,16 +153,24 @@ function toggleSound(){
                     audioPause();
                     audioWin.play(); // Win.mp3 plays if the game is complete
                 }
-                //print the updated best score on the page
-                if(bestScore == null) 
+                //print the updated best score & point  on the page
+                if(bestScore == null ) {
                     bestScore = counter;
+                }
+                if(point == null) {
+                    point = currentPoint;
+                }
                 else{
                     bestScore = Math.min(bestScore, counter);
+                    point = Math.max(point,currentPoint);
                 }
-                //store the best score on the local storage
+                //store the best score & Point on the local storage
                 localStorage.setItem("memory-game-best-score", bestScore);
+                localStorage.setItem("memory-game-best-point", point);
                 bestTimer.innerHTML = "<b>" + bestScore + "</b>";
+                bestPoint.innerHTML = "<b>" + point + "</b>";
                 document.querySelector('#modal--time').innerHTML = counter + " seconds";
+                document.querySelector('#modal--point').innerHTML = currentPoint + " points";
                 clearInterval(interval)
                 document.querySelector('.modal').style.display = "flex";
             }
