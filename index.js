@@ -15,7 +15,7 @@ function toggleSound(){
 (() => {
     let level = window.prompt("Choose a level", "1/2/3");
     if (level !== '1' && level !== '2' && level !== '3')
-        level = '1';
+        level = '1'; // Setting default level to 1
     const noOfCards = level == 1 ? 12 : (level == 2 ? 20 : 24) ;
     for(let i = 0; i < noOfCards; i++) {
         var newCard = document.createElement("div");
