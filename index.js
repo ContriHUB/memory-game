@@ -1,3 +1,7 @@
+// Suggesting user to switch to landscape mode if their currently in portrait mode
+if (screen.availHeight > screen.availWidth)
+    alert("Please switch to landscape mode for a better experience!");
+
 function restartGame(){
     window.location.reload()
 }
