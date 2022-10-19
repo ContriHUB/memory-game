@@ -20,8 +20,9 @@ body {
 }
 
 .memory-game{
-    width: 80vmin;
-    height: 80vmin;
+    min-width: 550px;
+    width: 50%;
+    height: 65vh;
     display: flex;
     flex-wrap: wrap;
     margin:0 auto;
@@ -29,6 +30,12 @@ body {
     padding: 10px;  
     border-bottom: 4px solid #c9d5e7;
 }
+
+@media (min-width: 992px) { 
+    .memory-game {
+        height: 80vh;
+    }
+ }
 
 header{
     display: flex;
@@ -62,13 +69,6 @@ header{
 }
 
 /* Mute button */
-#toggle-sound{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    margin: 10px;
-}
-
 #mute-btn {
     float: right;
     padding-left: 5px;
@@ -124,11 +124,14 @@ header{
 }
 /* Mute button ends */
 .time--stat {
-    width: 80vmin;
     margin: auto;
     margin-top: 12px;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+}
+
+.time--stat > * {
+    margin: 0 10px;
 }
 
 .memory-card{
@@ -201,5 +204,9 @@ header{
 .modal--btn {
     margin-top: 15px;
     padding: 12px 30px;
+}
+
+.memory-card--lvl3 {
+    width: 16%;
 }
 

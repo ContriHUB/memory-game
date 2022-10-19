@@ -14,10 +14,13 @@ function toggleSound(){
 // Wrapping entire code in anonymous function and calling it, so that user doesn't have access to cardImageSrcs
 (() => {
     let level = window.prompt("Choose a level", "1/2/3");
+    if (level !== '1' && level !== '2' && level !== '3')
+        level = '1';
     const noOfCards = level == 1 ? 12 : (level == 2 ? 20 : 24) ;
     for(let i = 0; i < noOfCards; i++) {
         var newCard = document.createElement("div");
         newCard.classList.add("memory-card");
+        newCard.classList.add(`memory-card--lvl${level}`);
         var img1 = document.createElement("img");
         img1.classList.add("front-face");
         img1.src = "#";
