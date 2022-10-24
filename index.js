@@ -91,6 +91,7 @@ function toggleSound(){
 
     // unset image src when either card flip or show all cards
     const unsetImgSource = (card) =>{
+        flip(card)
         card.children[0].src="#"; // Removing image src so that it isn't visible through HTML
         card.children[0].alt="card front face"; // Removing image alt so that it isn't visible through HTML
         card.children[1].style.display="block";
@@ -181,6 +182,10 @@ function toggleSound(){
         flippedCards.length= 0;
     }
 
+    function flip(card) {
+        card.classList.toggle("flip")
+    }
+
     function flipCard(e, i){
         const card = e.target
 
@@ -189,12 +194,13 @@ function toggleSound(){
             return;
 
         flippedCards.push(card)
+        flip(card)
         setImgSource(card, i);
 
         //when we have filled two cards check for the match
         if(flippedCards.length === 2)
         {
-            setTimeout(checkForMatch,100); // Adding a small delay, so that card gets enough time to render updated src before alert pops up
+            setTimeout(checkForMatch,1000); // Adding a small delay, so that card gets enough time to render updated src before alert pops up
         }
     }
 
