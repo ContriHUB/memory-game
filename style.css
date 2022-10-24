@@ -38,6 +38,7 @@ header{
     align-items:center;
     background-color: rgba(255, 255, 255, 0.289);
     padding: 10px 0px;
+    perspective: 1000px;
 }
 
 #restart-btn, .modal--btn{
@@ -135,6 +136,8 @@ header{
     width: 24%;
     position: relative;
     background-color: white;
+    transform-style: preserve-3d;
+    transition: transform 1s;
 }
 
 .memory-card>img{
@@ -149,6 +152,7 @@ header{
     object-fit: scale-down;
     /* object-fit: cover; */
     /* object-position: top center; */
+    transform: rotateY(180deg);
 
 }
 .front-face,.back-face{
@@ -203,3 +207,6 @@ header{
     padding: 12px 30px;
 }
 
+.flip {
+    transform: rotateY(180deg);
+}
