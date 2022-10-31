@@ -93,11 +93,11 @@ function toggleSound(){
     }
 
     // unset image src when either card flip or show all cards
-    // const unsetImgSource = (card) =>{
-    //     card.children[0].src="#"; // Removing image src so that it isn't visible through HTML
-    //     card.children[0].alt="card front face"; // Removing image alt so that it isn't visible through HTML
-    //     card.children[1].style.display="block";
-    // }
+    const unsetImgSource = (card) =>{
+        card.children[0].src="#"; // Removing image src so that it isn't visible through HTML
+        card.children[0].alt="card front face"; // Removing image alt so that it isn't visible through HTML
+        card.children[1].style.display="block";
+    }
 
     //Function to flip the whole card
     const flipImg = (card) => {
