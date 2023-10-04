@@ -1,10 +1,11 @@
 # Memory game
 
-a simple memory game using HTML,CSS, JS
+A simple memory game using HTML, CSS, JS
 ![screenshot](./images/ss.png)
 
 ## How to run locally
-just clone the repository or download the files and open `index.html`
+
+Just clone the repository or download the files and open `index.html`
 
 ## Contributing
 
@@ -17,8 +18,8 @@ just clone the repository or download the files and open `index.html`
 
 For major changes, please open an issue first to discuss what you would like to change.
 
-
 ## NOTE: 
 you must only use HTML,CSS,JS only. No other library or framework is allowed for this project
+
 ## Contributors
 A list of contributors can be found in [CONTRIBUTORS.MD](CONTRIBUTORS.md)
